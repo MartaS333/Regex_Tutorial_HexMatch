@@ -1,10 +1,9 @@
-# Title (replace with your title)
-
-Introductory paragraph (replace this with your text)
+# Hex Value Regex Tutorial
 
 ## Summary
 
-Briefly summarize the regex you will be describing and what you will explain. Include a code snippet of the regex. Replace this text with your summary.
+As a full stack web development student I wanted to create a tutorial explaing the breakdown of this Hec Value Regex `/^#?([a-f0-9]{6}|[a-f0-9]{3})$/`.
+In this tutorial I will explain all the components that make up this regex.
 
 ## Table of Contents
 
@@ -12,7 +11,6 @@ Briefly summarize the regex you will be describing and what you will explain. In
 - [Quantifiers](#quantifiers)
 - [OR Operator](#or-operator)
 - [Character Classes](#character-classes)
-- [Flags](#flags)
 - [Grouping and Capturing](#grouping-and-capturing)
 - [Bracket Expressions](#bracket-expressions)
 - [Greedy and Lazy Match](#greedy-and-lazy-match)
@@ -51,6 +49,9 @@ In our "Matching a Hex Value" regex, quantifiers make an appearnce in a few inst
 
 ### OR Operator
 
+Using the OR Operator `|`, an expression like [abc] can be written as [a|b|c].
+In our Hex match regex we have two expressions in the group `([a-f0-9]{6}|[a-f0-9]{3})`, `[a-f0-9]{6}` and `[a-f0-9]{3}`. This means that our regex will match either of the two expressions.
+
 ### Character Classes
 
 A character class in regex defines a set of chracters, which can occur in an input string to fulfill a match.
@@ -63,14 +64,27 @@ Here are some common character classes:
 
 In our regex we have one characte class that is repeated twice `[a-f0-9]`. A character class will match any character enclosed in brackets. In our character class we have two ranges: `a-f` and `0-9`. That means it will match any character a through f and any number 0 through 9. Remeber that regex is case sensitive so it will only match lowecase letters a through f.
 
-### Flags
-
 ### Grouping and Capturing
+
+More complicated regexes use grouping constructs to check multiple parts of a string by breaking these sections up. You primarily group a section by using parentheses `()`.
+
+In our "Matching a Hex Value" regex parentheses are used but not to break up the expression into sections.
 
 ### Bracket Expressions
 
+Anything inside a set of square brackets `[]` represents a range of characters that we want to match. In our "Matching a Hex Value" regex we have the same bracket expression `[a-f0-9]` repeated twice. THe breakdown is as follows:
+
+- `[a-f]` The string can contain any lowercase letter between a-f.
+- `[0-9]` The string can contain any number 0-9
+
 ### Greedy and Lazy Match
+
+- 'Greedy' means matching the longest possible string. A Greedy quantifier tells the engine to match as many instances of its quantified token or subpattern as possible. This behavior is called greedy.
+
+- 'Lazy' means matching the shortest possible string. A lazy quantifier tells the engine to match as few of the quantified tokens as needed. As you'll see in the table below, a regular quantifier is made lazy by appending a ? question mark to it.
+
+In the beginning of our "Matching a Hex Value" regex we see `#?` which is made lazy by adding the `?`
 
 ## Author
 
-A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
+[Marta Schwarz](https://github.com/MartaS333)
